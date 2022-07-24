@@ -11,7 +11,9 @@
       rel="stylesheet"
     />
     <link href="styles/default.css" rel="stylesheet" type="text/css" />
-    <link href="styles/clock.css" rel="stylesheet" type="text/css" />
+    <link href="styles/clock-page.css" rel="stylesheet" type="text/css" />
+    <link href="styles/top-app-bar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/clock-panel.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
@@ -42,7 +44,18 @@
         </a>
       </nav>
     </header>
-    <main>timer</main>
+    <main>
+      <div class="clock">
+        <div class="flap-display">
+          <span class="display display-top">2</span>
+          <span class="display display-bottom">2</span>
+          <span class="flap flap-top">4</span>
+          <span class="flap flap-bottom">4</span>
+        </div>
+      </div>
+      <button>fullscreen</button>
+      <button>exit fullscreen</button>
+    </main>
     <script src="scripts/clock.js"></script>
   </body>
 </html>

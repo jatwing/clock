@@ -1,0 +1,54 @@
+main {
+  flex-grow: 1;
+  background: gray;
+}
+
+.flap-display {
+  position: relative;
+  color: white;
+  font-size: 3.75rem;
+  --flap-display-width: 10rem;
+  --flap-display-height: 8rem;
+  --flap-animation-time: 0.6s;
+  --flap-animation-ease: linear;
+  --flap-border-radius: 0.4rem;
+  --flap-background-color: #212121;
+  background: darkblue;
+  text-align: center;
+  height: 500px;
+  width: 300px;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.display,
+.flap {
+  display: block;
+  position: absolute;
+  width: var(--flap-display-width);
+  height: var(--flap-display-height);
+  overflow: hidden;
+  background-color: var(--flap-background-color);
+}
+
+.display-top {
+  line-height: calc(var(--flap-display-height) * 2);
+  background: darkred;
+}
+
+.display-bottom {
+  top: var(--flap-display-height);
+  line-height: 0;
+  background: darkgreen;
+}
+
+.flap-top {
+  line-height: calc(var(--flap-display-height) * 2);
+  background: red;
+}
+
+.flap-bottom {
+  top: var(--flap-display-height);
+  line-height: 0;
+  background: green;
+}
