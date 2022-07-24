@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+h1,
+a {
+  all: unset;
+}
