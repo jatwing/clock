@@ -9,7 +9,8 @@ html {
   font-family: Roboto, sans-serif;
 }
 
-h1,
-a {
+a,
+button,
+h1 {
   all: unset;
 }
