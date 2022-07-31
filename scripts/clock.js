@@ -13,10 +13,21 @@ const setDigit = (flapDisplayId, value) => {
   const flapBackBottom = document.querySelector(
     `#${flapDisplayId} .flap.back.bottom`
   );
+
   flapBackTop.textContent = value;
   flapFrontTop.textContent = value;
   flapFrontBottom.textContent = value;
   flapBackBottom.textContent = value;
+
+  flapFrontTop.classList.add("animating");
+  flapFrontTop.addEventListener("animationend", () =>
+    flapFrontTop.classList.remove("animating")
+  );
+
+  flapBackBottom.classList.add("animating");
+  flapBackBottom.addEventListener("animationend", () =>
+    flapBackBottom.classList.remove("animating")
+  );
 };
 
 const showTime = () => {
