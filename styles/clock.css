@@ -18,10 +18,6 @@ main {
   background: darkblue;
 }
 
-#hour-first-digit {
-  background: yellow;
-}
-
 .flap {
   display: block;
   position: absolute;
@@ -32,21 +28,23 @@ main {
   background-color: #212121;
 }
 
-.flap.top {
+.flap.back-top,
+.flap.front-top {
   line-height: calc(var(--flap-height) * 2);
 }
 
-.flap.bottom {
+.flap.front-bottom,
+.flap.back-bottom {
   top: var(--flap-height);
   line-height: 0;
 }
 
-.flap.front.top {
+.flap.front-top {
   transform-origin: bottom;
   transform: rotateX(0deg);
 }
 
-.flap.back.bottom {
+.flap.back-bottom {
   transform-origin: top;
   transform: rotateX(90deg);
 }
@@ -71,13 +69,13 @@ main {
   }
 }
 
-.flap.front.top.animating {
+.flap.front-top.animating {
   animation-name: flipUp;
   animation-duration: var(--flap-animation-duration);
   animation-timing-function: var(--flap-animation-timing-function);
 }
 
-.flap.back.bottom.animating {
+.flap.back-bottom.animating {
   animation-name: flipDown;
   animation-duration: var(--flap-animation-duration);
   animation-timing-function: var(--flap-animation-timing-function);
