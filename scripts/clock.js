@@ -1,4 +1,11 @@
-const setDigit = (flapDisplayId, newValue, oldValue) => {
+const getTwoDigitTime = (date) => {
+  const hour = ("0" + date.getHours()).slice(-2);
+  const minute = ("0" + date.getMinutes()).slice(-2);
+  const second = ("0" + date.getSeconds()).slice(-2);
+  return { hour, minute, second };
+};
+
+const setFlapDisplay = (flapDisplayId, newValue, oldValue) => {
   const flapBackTop = document.querySelector(
     `#${flapDisplayId} .flap.back-top`
   );
@@ -31,42 +38,12 @@ const setDigit = (flapDisplayId, newValue, oldValue) => {
 };
 
 const showTime = () => {
-  const now = new Date();
-  const currentHourFirstDigit = Math.floor(now.getHours() / 10);
-  const currentHourSecondDigit = now.getHours() % 10;
-  const currentMinuteFirstDigit = Math.floor(now.getMinutes() / 10);
-  const currentMinuteSecondDigit = now.getMinutes() % 10;
-  const currentSecondFirstDigit = Math.floor(now.getSeconds() / 10);
-  const currentSecondSecondDigit = now.getSeconds() % 10;
-  const oneSecondAgo = new Date(new Date().getTime() - 1000);
-  const recentHourFirstDigit = Math.floor(oneSecondAgo.getHours() / 10);
-  const recentHourSecondDigit = oneSecondAgo.getHours() % 10;
-  const recentMinuteFirstDigit = Math.floor(oneSecondAgo.getMinutes() / 10);
-  const recentMinuteSecondDigit = oneSecondAgo.getMinutes() % 10;
-  const recentSecondFirstDigit = Math.floor(oneSecondAgo.getSeconds() / 10);
-  const recentSecondSecondDigit = oneSecondAgo.getSeconds() % 10;
-  setDigit("hour-first-digit", currentHourFirstDigit, recentHourFirstDigit);
-  setDigit("hour-second-digit", currentHourSecondDigit, recentHourSecondDigit);
-  setDigit(
-    "minute-first-digit",
-    currentMinuteFirstDigit,
-    recentMinuteFirstDigit
-  );
-  setDigit(
-    "minute-second-digit",
-    currentMinuteSecondDigit,
-    recentMinuteSecondDigit
-  );
-  setDigit(
-    "second-first-digit",
-    currentSecondFirstDigit,
-    recentSecondFirstDigit
-  );
-  setDigit(
-    "second-second-digit",
-    currentSecondSecondDigit,
-    recentSecondSecondDigit
-  );
+  const now = getTwoDigitTime(new Date());
+  const oneSecondAgo = getTwoDigitTime(new Date(new Date().getTime() - 1000));
+  setFlapDisplay("hour", now.hour, oneSecondAgo.hour);
+  setFlapDisplay("minute", now.minute, oneSecondAgo.minute);
+  // setFlapDisplay("second", now.second, oneSecondAgo.second);
 };
 
+showTime();
 const interval = setInterval(showTime, 1000);
