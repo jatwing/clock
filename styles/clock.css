@@ -1,6 +1,6 @@
 main {
   flex-grow: 1;
-  background: #080808;
+  background: #121212;
 }
 
 .clock {
@@ -20,7 +20,8 @@ main {
 .flap-display {
   --flap-width: min(72vw, 36vh);
   --flap-height: calc(var(--flap-width) * 0.5);
-  --flap-border-radius: 2rem;
+  --flap-padding: 0.125rem;
+  --flap-border-radius: 1rem;
   --flap-font-size: calc(var(--flap-width) * 0.75);
   --flap-animation-duration: 0.5s;
   --flap-animation-timing-function: linear;
@@ -29,12 +30,13 @@ main {
   height: calc(var(--flap-height) * 2);
   text-align: center;
   font-size: var(--flap-font-size);
-  color: #bbbbbb;
 }
 
 @media (min-width: 600px) {
   .flap-display {
     --flap-width: min(36vw, 72vh);
+    --flap-padding: 0.1875rem;
+    --flap-border-radius: 2rem;
   }
 }
 
@@ -43,12 +45,15 @@ main {
   position: absolute;
   width: var(--flap-width);
   height: var(--flap-height);
+  clip-path: content-box;
   overflow: hidden;
-  background-color: #141414;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #212121;
 }
 
 .flap.back-top,
 .flap.front-top {
+  padding-bottom: var(--flap-padding);
   border-top-left-radius: var(--flap-border-radius);
   border-top-right-radius: var(--flap-border-radius);
   line-height: calc(var(--flap-height) * 2);
@@ -56,6 +61,7 @@ main {
 
 .flap.front-bottom,
 .flap.back-bottom {
+  padding-top: var(--flap-padding);
   border-bottom-left-radius: var(--flap-border-radius);
   border-bottom-right-radius: var(--flap-border-radius);
   top: var(--flap-height);

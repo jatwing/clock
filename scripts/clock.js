@@ -5,19 +5,11 @@ const getTwoDigitTime = (date) => {
   return { hour, minute, second };
 };
 
-const setFlapDisplay = (flapDisplayId, newValue, oldValue) => {
-  const flapBackTop = document.querySelector(
-    `#${flapDisplayId} .flap.back-top`
-  );
-  const flapFrontTop = document.querySelector(
-    `#${flapDisplayId} .flap.front-top`
-  );
-  const flapFrontBottom = document.querySelector(
-    `#${flapDisplayId} .flap.front-bottom`
-  );
-  const flapBackBottom = document.querySelector(
-    `#${flapDisplayId} .flap.back-bottom`
-  );
+const setFlapDisplay = (id, newValue, oldValue) => {
+  const flapBackTop = document.querySelector(`#${id} .flap.back-top`);
+  const flapFrontTop = document.querySelector(`#${id} .flap.front-top`);
+  const flapFrontBottom = document.querySelector(`#${id} .flap.front-bottom`);
+  const flapBackBottom = document.querySelector(`#${id} .flap.back-bottom`);
   flapBackTop.textContent = newValue;
   flapFrontTop.textContent = oldValue;
   flapFrontBottom.textContent = oldValue;
@@ -37,13 +29,22 @@ const setFlapDisplay = (flapDisplayId, newValue, oldValue) => {
   );
 };
 
-const showTime = () => {
+const setTime = () => {
   const now = getTwoDigitTime(new Date());
-  const oneSecondAgo = getTwoDigitTime(new Date(new Date().getTime() - 1000));
-  setFlapDisplay("hour", now.hour, oneSecondAgo.hour);
-  setFlapDisplay("minute", now.minute, oneSecondAgo.minute);
-  // setFlapDisplay("second", now.second, oneSecondAgo.second);
+  setFlapDisplay("hour", now.hour, now.hour);
+  setFlapDisplay("minute", now.minute, now.minute);
 };
 
-showTime();
-const interval = setInterval(showTime, 1000);
+const updateTime = () => {
+  const now = getTwoDigitTime(new Date());
+  const oneSecondAgo = getTwoDigitTime(new Date(new Date().getTime() - 1000));
+  if (now.hour != oneSecondAgo.hour) {
+    setFlapDisplay("hour", now.hour, oneSecondAgo.hour);
+  }
+  if (now.minute != oneSecondAgo.minute) {
+    setFlapDisplay("minute", now.minute, oneSecondAgo.minute);
+  }
+};
+
+setTime();
+const interval = setInterval(updateTime, 1000);
