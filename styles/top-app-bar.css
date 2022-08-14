@@ -1,12 +1,14 @@
 header {
   width: 100%;
-  background: darkblue;
   height: 3.5rem;
   padding: 0 1rem;
   color: rgba(255, 255, 255, 0.87);
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @media (min-width: 600px) {
@@ -50,4 +52,13 @@ header > nav > button:focus {
 header > nav > a:active,
 header > nav > button:focus {
   background: rgba(255, 255, 255, 0.32);
+}
+
+#top-app-bar.hidden {
+  opacity: 0;
+}
+
+#top-app-bar.absolute {
+  position: absolute;
+  top: -3.5rem;
 }

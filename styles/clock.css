@@ -1,8 +1,3 @@
-main {
-  flex-grow: 1;
-  background: #121212;
-}
-
 .clock {
   height: 100%;
   display: flex;
@@ -28,8 +23,6 @@ main {
   position: relative;
   width: var(--flap-width);
   height: calc(var(--flap-height) * 2);
-  text-align: center;
-  font-size: var(--flap-font-size);
 }
 
 @media (min-width: 600px) {
@@ -47,6 +40,9 @@ main {
   height: var(--flap-height);
   clip-path: content-box;
   overflow: hidden;
+  text-align: center;
+  font-size: var(--flap-font-size);
+  font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
   background-color: #212121;
 }
