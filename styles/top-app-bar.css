@@ -1,4 +1,6 @@
 header {
+  width: 100%;
+  background: darkblue;
   height: 3.5rem;
   padding: 0 1rem;
   display: flex;
