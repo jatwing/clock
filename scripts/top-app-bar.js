@@ -2,27 +2,26 @@ const topAppBar = document.querySelector("#top-app-bar");
 const fullscreen = document.querySelector("#fullscreen");
 const clock = document.querySelector("#clock");
 
-const handleClickFullscreen = () => {
+const demandFullscreen = () => {
+  if (document.fullscreenEnabled) {
+    clock.requestFullscreen();
+  }
   topAppBar.classList.add("hidden");
-  clock.requestFullscreen();
 };
 
-const handleTransitionEnd = (event) => {
-  if (!event.target.classList.contains("hidden")) {
-    return;
+const quitFullscreen = () => {
+  if (document.fullscreenEnabled && document.fullscreenElement) {
+    document.exitFullscreen();
   }
-  topAppBar.classList.add("absolute");
-};
-
-const handleClickClock = () => {
-  topAppBar.classList.remove("absolute");
   topAppBar.classList.remove("hidden");
-  if (!document.fullscreenElement) {
-    return;
-  }
-  document.exitFullscreen();
 };
 
-topAppBar.addEventListener("transitionend", handleTransitionEnd);
-fullscreen.addEventListener("click", handleClickFullscreen, false);
-clock.addEventListener("click", handleClickClock, false);
+const changeFullscreen = () => {
+  if (!document.fullscreenElement) {
+    topAppBar.classList.remove("hidden");
+  }
+};
+
+fullscreen.addEventListener("click", demandFullscreen, false);
+clock.addEventListener("click", quitFullscreen, false);
+clock.addEventListener("fullscreenchange", changeFullscreen);
