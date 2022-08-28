@@ -6,26 +6,34 @@ const getTwoDigitTime = (date) => {
 };
 
 const setFlapDisplay = (id, newValue, oldValue) => {
-  const flapBackTop = document.querySelector(`#${id} .flap.back-top`);
-  const flapFrontTop = document.querySelector(`#${id} .flap.front-top`);
-  const flapFrontBottom = document.querySelector(`#${id} .flap.front-bottom`);
-  const flapBackBottom = document.querySelector(`#${id} .flap.back-bottom`);
-  flapBackTop.textContent = newValue;
-  flapFrontTop.textContent = oldValue;
-  flapFrontBottom.textContent = oldValue;
-  flapBackBottom.textContent = newValue;
+  const topTightFlap = document.querySelector(
+    `#${id} .display__top-tight-flap`
+  );
+  const topLooseFlap = document.querySelector(
+    `#${id} .display__top-loose-flap`
+  );
+  const bottomTightFlap = document.querySelector(
+    `#${id} .display__bottom-tight-flap`
+  );
+  const bottomLooseFlap = document.querySelector(
+    `#${id} .display__bottom-loose-flap`
+  );
+  topTightFlap.textContent = newValue;
+  topLooseFlap.textContent = oldValue;
+  bottomTightFlap.textContent = oldValue;
+  bottomLooseFlap.textContent = newValue;
   if (newValue === oldValue) {
-    return;
+     return;
   }
-  flapFrontTop.classList.add("animating");
-  flapFrontTop.addEventListener("animationend", () => {
-    flapFrontTop.classList.remove("animating");
-    flapFrontTop.textContent = newValue;
-    flapFrontBottom.textContent = newValue;
+  topLooseFlap.classList.add("display__top-loose-flap--flipping");
+  topLooseFlap.addEventListener("animationend", () => {
+    topLooseFlap.classList.remove("display__top-loose-flap--flipping");
+    topLooseFlap.textContent = newValue;
+    bottomTightFlap.textContent = newValue;
   });
-  flapBackBottom.classList.add("animating");
-  flapBackBottom.addEventListener("animationend", () =>
-    flapBackBottom.classList.remove("animating")
+  bottomLooseFlap.classList.add("display__bottom-loose-flap--flipping");
+  bottomLooseFlap.addEventListener("animationend", () =>
+    bottomLooseFlap.classList.remove("display__bottom-loose-flap--flipping")
   );
 };
 
