@@ -1,4 +1,4 @@
-header {
+.header {
   position: relative;
   top: 0;
   width: 100%;
@@ -14,13 +14,17 @@ header {
   transition: height 0.5s ease-in-out;
 }
 
+.header--hidden {
+  height: 0;
+}
+
 @media (min-width: 600px) {
-  header {
+  .header {
     height: 4rem;
   }
 }
 
-header > h1 {
+.header__title {
   white-space: nowrap;
   font-size: 1.25rem;
   line-height: 2rem;
@@ -28,13 +32,12 @@ header > h1 {
   letter-spacing: 0.0125em;
 }
 
-header > nav {
+.header__navigation {
   display: flex;
   align-items: center;
 }
 
-header > nav > a,
-header > nav > button {
+.header__link {
   height: 1.5rem;
   width: 1.5rem;
   padding: 0.75rem;
@@ -42,21 +45,14 @@ header > nav > button {
   cursor: pointer;
 }
 
-header > nav > a:hover,
-header > nav > button:hover {
+.header__link:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-header > nav > a:focus,
-header > nav > button:focus {
+.header__link:focus {
   background: rgba(255, 255, 255, 0.24);
 }
 
-header > nav > a:active,
-header > nav > button:focus {
+.header__link:active {
   background: rgba(255, 255, 255, 0.32);
-}
-
-header.hidden {
-  height: 0;
 }

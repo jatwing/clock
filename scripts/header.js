@@ -1,24 +1,24 @@
-const topAppBar = document.querySelector("#top-app-bar");
+const header = document.querySelector(".header");
 const fullscreen = document.querySelector("#fullscreen");
-const clock = document.querySelector("#clock");
+const clock = document.querySelector(".clock");
 
 const demandFullscreen = () => {
   if (document.fullscreenEnabled) {
     clock.requestFullscreen();
   }
-  topAppBar.classList.add("hidden");
+  header.classList.add("header--hidden");
 };
 
 const quitFullscreen = () => {
   if (document.fullscreenEnabled && document.fullscreenElement) {
     document.exitFullscreen();
   }
-  topAppBar.classList.remove("hidden");
+  header.classList.remove("header--hidden");
 };
 
 const changeFullscreen = () => {
   if (!document.fullscreenElement) {
-    topAppBar.classList.remove("hidden");
+    header.classList.remove("header--hidden");
   }
 };
 
