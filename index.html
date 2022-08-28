@@ -12,15 +12,15 @@
     />
     <link href="styles/default.css" rel="stylesheet" type="text/css" />
     <link href="styles/index.css" rel="stylesheet" type="text/css" />
-    <link href="styles/top-app-bar.css" rel="stylesheet" type="text/css" />
+    <link href="styles/header.css" rel="stylesheet" type="text/css" />
     <link href="styles/clock.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
-    <header id="top-app-bar">
-      <h1>Flip Clock</h1>
-      <nav>
+  <body class="body">
+    <header class="header">
+      <h1 class="header__title">Flip Clock</h1>
+      <nav class="header__navigation">
         <a
-          id="invertocat"
+          class="header__link"
           href="https://github.com/jatwing/clock"
           target="_blank"
           rel="noopener noreferrer"
@@ -34,7 +34,7 @@
             />
           </svg>
         </a>
-        <button id="fullscreen" title="Fullscreen">
+        <button id="fullscreen" class="header__link" title="Fullscreen">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"
@@ -44,24 +44,24 @@
         </button>
       </nav>
     </header>
-    <main>
-      <!-- for accessibility and bem naming, please make main a clock block and delete this div -->
-      <div id="clock" class="clock">
-        <div id="hour" class="flap-display">
-          <span class="flap back-top"></span>
-          <span class="flap front-top"></span>
-          <span class="flap front-bottom"></span>
-          <span class="flap back-bottom"></span>
-        </div>
-        <div id="minute" class="flap-display">
-          <span class="flap back-top"></span>
-          <span class="flap front-top"></span>
-          <span class="flap front-bottom"></span>
-          <span class="flap back-bottom"></span>
-        </div>
+    <main class="clock">
+      <div id="hour" class="display">
+        <span class="display__top-flap"></span>
+        <span class="display__top-flap display__top-flap--loose"></span>
+        <span class="display__bottom-flap display__bottom-flap--loose"></span>
+        <span class="display__bottom-flap"></span>
+      </div>
+      <div id="minute" class="display">
+        <span class="display__top-flap"></span>
+        <span class="display__top-flap display__top-flap--loose"></span>
+        <span class="display__bottom-flap display__bottom-flap--loose"></span>
+        <span class="display__bottom-flap"></span>
       </div>
     </main>
+    <script src="scripts/header.js"></script>
+    <!--
     <script src="scripts/clock.js"></script>
     <script src="scripts/top-app-bar.js"></script>
+    -->
   </body>
 </html>
