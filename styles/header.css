@@ -30,6 +30,7 @@
   line-height: 2rem;
   font-weight: 500;
   letter-spacing: 0.0125em;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .header__navigation {
