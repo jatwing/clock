@@ -23,7 +23,7 @@ const setFlapDisplay = (id, newValue, oldValue) => {
   bottomTightFlap.textContent = oldValue;
   bottomLooseFlap.textContent = newValue;
   if (newValue === oldValue) {
-     return;
+    return;
   }
   topLooseFlap.classList.add("display__top-loose-flap--flipping");
   topLooseFlap.addEventListener("animationend", () => {

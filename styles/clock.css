@@ -21,7 +21,6 @@
 .display {
   --flap-width: min(72vw, 36vh);
   --flap-height: calc(var(--flap-width) * 0.5);
-  --flap-padding: 0.125rem;
   --flap-border-radius: 1rem;
   --flap-font-size: calc(var(--flap-width) * 0.75);
   --flap-animation-duration: 0.5s;
@@ -51,7 +50,21 @@
   text-align: center;
   font-size: var(--flap-font-size);
   font-weight: 700;
+}
+
+.display__top-tight-flap::before,
+.display__top-loose-flap::before,
+.display__bottom-tight-flap::before,
+.display__bottom-loose-flap::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--flap-width);
+  height: var(--flap-height);
   background-color: #212121;
+  z-index: -1;
 }
 
 .display__top-tight-flap,
