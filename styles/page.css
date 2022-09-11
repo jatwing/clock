@@ -1,4 +1,4 @@
-.body {
+.page {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -7,6 +7,6 @@
   flex-direction: column;
 }
 
-.body__clock {
+.page__clock {
   flex-grow: 1;
 }
