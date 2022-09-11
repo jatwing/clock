@@ -18,6 +18,10 @@
   color: rgba(255, 0, 0, 0.87);
 }
 
+.header--hidden {
+  height: 0;
+}
+
 @media (min-width: 600px) {
   .header {
     height: 4rem;
