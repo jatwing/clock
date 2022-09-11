@@ -5,6 +5,15 @@ const getTwoDigitTime = (date) => {
   return { hour, minute, second };
 };
 
+const setFlapText = (flap, text) => {
+  for (const node of flap.childNodes) {
+    if (node.tagName === 'SPAN') {
+      node.textContent = text;
+      return;
+    }
+  }
+}
+
 const setFlapDisplay = (id, newValue, oldValue) => {
   const topTightFlap = document.querySelector(
     `#${id} .display__top-tight-flap`
@@ -18,18 +27,18 @@ const setFlapDisplay = (id, newValue, oldValue) => {
   const bottomLooseFlap = document.querySelector(
     `#${id} .display__bottom-loose-flap`
   );
-  topTightFlap.textContent = newValue;
-  topLooseFlap.textContent = oldValue;
-  bottomTightFlap.textContent = oldValue;
-  bottomLooseFlap.textContent = newValue;
+  setFlapText(topTightFlap, newValue);
+  setFlapText(topLooseFlap, oldValue);
+  setFlapText(bottomTightFlap, oldValue);
+  setFlapText(bottomLooseFlap, newValue);
   if (newValue === oldValue) {
     return;
   }
   topLooseFlap.classList.add("display__top-loose-flap--flipping");
   topLooseFlap.addEventListener("animationend", () => {
     topLooseFlap.classList.remove("display__top-loose-flap--flipping");
-    topLooseFlap.textContent = newValue;
-    bottomTightFlap.textContent = newValue;
+    setFlapText(topLooseFlap, newValue);
+    setFlapText(bottomTightFlap, newValue);
   });
   bottomLooseFlap.classList.add("display__bottom-loose-flap--flipping");
   bottomLooseFlap.addEventListener("animationend", () =>

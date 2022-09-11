@@ -45,9 +45,10 @@
   text-align: center;
   font-size: var(--flap-font-size);
   font-weight: 700;
-  opacity: 0.6;
+  background-color: #212121;
 }
 
+/*
 .display__top-tight-flap::before,
 .display__top-loose-flap::before,
 .display__bottom-tight-flap::before,
@@ -62,6 +63,7 @@
   background-color: #212121;
   z-index: -1;
 }
+*/
 
 .display__top-tight-flap,
 .display__top-loose-flap {
@@ -120,4 +122,9 @@
   animation-name: flipDown;
   animation-duration: var(--flap-animation-duration);
   animation-timing-function: var(--flap-animation-timing-function);
+}
+
+
+.display__text {
+  opacity: 0.6;
 }
