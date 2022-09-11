@@ -74,19 +74,15 @@ const clock = document.querySelector("#clock");
 palette.addEventListener("click", () => changeColor());
 
 fullscreen.addEventListener("click", () => {
-  /*
   if (demandFullscreen(clock) !== false) {
     return;
   }
-  */
   header.classList.add("header--hidden");
 });
 
 clock.addEventListener("click", () => {
-  /*
   if (quitFullscreen() !== false) {
     return;
   }
-  */
   header.classList.remove("header--hidden");
 });
