@@ -4,12 +4,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  color: rgba(255, 255, 255, 0.6);
   background: #121212;
-}
-
-.clock--red {
-  color: rgba(255, 0, 0, 0.6);
 }
 
 @media (min-width: 600px) {
@@ -50,6 +45,7 @@
   text-align: center;
   font-size: var(--flap-font-size);
   font-weight: 700;
+  opacity: 0.6;
 }
 
 .display__top-tight-flap::before,

@@ -1,13 +1,10 @@
 const changeColor = () => {
-  const header = document.querySelector("#header");
-  const clock = document.querySelector("#clock");
-  if (header.classList.contains("header--red")) {
-    header.classList.remove("header--red");
-    clock.classList.remove("clock--red");
+  const page = document.querySelector("#page");
+  if (page.classList.contains('page--red')) {
+    page.classList.remove('page--red');
     return;
   }
-  header.classList.add("header--red");
-  clock.classList.add("clock--red");
+  page.classList.add('page--red');
 };
 
 const demandFullscreen = (element) => {
