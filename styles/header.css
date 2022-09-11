@@ -26,6 +26,9 @@
   .header {
     height: 4rem;
   }
+  .header--hidden {
+    height: 0;
+  }
 }
 
 .header__title {
