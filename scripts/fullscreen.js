@@ -1,12 +1,3 @@
-const changeColor = () => {
-  const page = document.querySelector("#page");
-  if (page.classList.contains('page--red')) {
-    page.classList.remove('page--red');
-    return;
-  }
-  page.classList.add('page--red');
-};
-
 const demandFullscreen = (element) => {
   if (
     document.fullscreenElement ||
@@ -64,11 +55,8 @@ const quitFullscreen = () => {
 };
 
 const header = document.querySelector("#header");
-const palette = document.querySelector("#palette");
 const fullscreen = document.querySelector("#fullscreen");
 const clock = document.querySelector("#clock");
-
-palette.addEventListener("click", () => changeColor());
 
 fullscreen.addEventListener("click", () => {
   if (demandFullscreen(clock) !== false) {
