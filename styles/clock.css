@@ -20,6 +20,7 @@
   --flap-font-size: calc(var(--flap-width) * 0.75);
   --flap-animation-duration: 0.5s;
   --flap-animation-timing-function: linear;
+
   height: calc(var(--flap-height) * 2);
   position: relative;
   width: var(--flap-width);
@@ -72,21 +73,23 @@
   transform-origin: top;
 }
 
-@keyframes flipUp {
+@keyframes flip-up {
   0% {
     transform: rotateX(0deg);
   }
+
   50%,
   100% {
     transform: rotateX(-90deg);
   }
 }
 
-@keyframes flipDown {
+@keyframes flip-down {
   0%,
   50% {
     transform: rotateX(90deg);
   }
+
   100% {
     transform: rotateX(0deg);
   }
@@ -94,13 +97,13 @@
 
 .display__flap--flipping:nth-child(2) {
   animation-duration: var(--flap-animation-duration);
-  animation-name: flipUp;
+  animation-name: flip-up;
   animation-timing-function: var(--flap-animation-timing-function);
 }
 
 .display__flap--flipping:nth-child(4) {
   animation-duration: var(--flap-animation-duration);
-  animation-name: flipDown;
+  animation-name: flip-down;
   animation-timing-function: var(--flap-animation-timing-function);
 }
 

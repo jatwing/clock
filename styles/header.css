@@ -20,13 +20,14 @@
   .header {
     height: 4rem;
   }
+
   .header--hidden {
     height: 0;
   }
 }
 
 .header__title {
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.0125em;
@@ -59,7 +60,7 @@
 .header__link:active::after {
   background: currentcolor;
   border-radius: 100%;
-  content: "";
+  content: '';
   height: 3rem;
   left: 0;
   position: absolute;
@@ -70,9 +71,11 @@
 .header__link:hover::after {
   opacity: 0.08;
 }
+
 .header__link:focus::after {
   opacity: 0.24;
 }
+
 .header__link:active::after {
   opacity: 0.32;
 }
