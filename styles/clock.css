@@ -48,22 +48,6 @@
   background-color: #212121;
 }
 
-/*
-.display__top-tight-flap::before,
-.display__top-loose-flap::before,
-.display__bottom-tight-flap::before,
-.display__bottom-loose-flap::before {
-  display: block;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: var(--flap-width);
-  height: var(--flap-height);
-  background-color: #212121;
-  z-index: -1;
-}
-*/
 
 .display__top-tight-flap,
 .display__top-loose-flap {
