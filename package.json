@@ -8,7 +8,10 @@
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2"
+    "eslint-plugin-import": "^2.25.2",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "postcss-sorting": "^7.0.1"
   },
   "scripts": {
     "lint": "yarn run eslint --fix ."
