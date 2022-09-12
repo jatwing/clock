@@ -7,61 +7,62 @@ const getTwoDigitTime = (date) => {
 
 const setFlapText = (flap, text) => {
   for (const node of flap.childNodes) {
-    if (node.tagName === 'SPAN') {
+    if (node.tagName === "SPAN") {
       node.textContent = text;
       return;
     }
   }
-}
+};
 
 /** flap ordering */
-const setFlapDisplay = (id, newValue, oldValue) => {
-  const topTightFlap = document.querySelector(
-    `#${id} .display__top-tight-flap`
-  );
-  const topLooseFlap = document.querySelector(
-    `#${id} .display__top-loose-flap`
-  );
-  const bottomTightFlap = document.querySelector(
-    `#${id} .display__bottom-tight-flap`
-  );
-  const bottomLooseFlap = document.querySelector(
-    `#${id} .display__bottom-loose-flap`
-  );
-  setFlapText(topTightFlap, newValue);
-  setFlapText(topLooseFlap, oldValue);
-  setFlapText(bottomTightFlap, oldValue);
-  setFlapText(bottomLooseFlap, newValue);
+const setFlapDisplay = (index, newValue, oldValue) => {
+  const firstFlap = document.querySelector(`
+    .display:nth-child(${index}) .display__flap:nth-child(1)
+  `);
+  const secondFlap = document.querySelector(`
+    .display:nth-child(${index}) .display__flap:nth-child(2)
+  `);
+  const thirdFlap = document.querySelector(`
+    .display:nth-child(${index}) .display__flap:nth-child(3)
+  `);
+  const fourthFlap = document.querySelector(`
+    .display:nth-child(${index}) .display__flap:nth-child(4)
+  `);
+  setFlapText(firstFlap, newValue);
+  setFlapText(secondFlap, oldValue);
+  setFlapText(thirdFlap, oldValue);
+  setFlapText(fourthFlap, newValue);
   if (newValue === oldValue) {
     return;
   }
-  topLooseFlap.classList.add("display__top-loose-flap--flipping");
-  topLooseFlap.addEventListener("animationend", () => {
-    topLooseFlap.classList.remove("display__top-loose-flap--flipping");
-    setFlapText(topLooseFlap, newValue);
-    setFlapText(bottomTightFlap, newValue);
+  secondFlap.classList.add("display__flap--flipping");
+  secondFlap.addEventListener("animationend", () => {
+    secondFlap.classList.remove("display__flap--flipping");
+    setFlapText(secondFlap, newValue);
+    setFlapText(thirdFlap, newValue);
   });
-  bottomLooseFlap.classList.add("display__bottom-loose-flap--flipping");
-  bottomLooseFlap.addEventListener("animationend", () =>
-    bottomLooseFlap.classList.remove("display__bottom-loose-flap--flipping")
+  fourthFlap.classList.add("display__flap--flipping");
+  fourthFlap.addEventListener("animationend", () =>
+    fourthFlap.classList.remove("display__flap--flipping")
   );
 };
 
 const setTime = () => {
   const now = getTwoDigitTime(new Date());
-  setFlapDisplay("hour", now.hour, now.hour);
-  setFlapDisplay("minute", now.minute, now.minute);
+  setFlapDisplay(1, now.hour, now.hour);
+  setFlapDisplay(2, now.minute, now.minute);
 };
 
 const updateTime = () => {
   const now = getTwoDigitTime(new Date());
   const oneSecondAgo = getTwoDigitTime(new Date(new Date().getTime() - 1000));
   if (now.hour != oneSecondAgo.hour) {
-    setFlapDisplay("hour", now.hour, oneSecondAgo.hour);
+    setFlapDisplay(1, now.hour, oneSecondAgo.hour);
   }
   if (now.minute != oneSecondAgo.minute) {
-    setFlapDisplay("minute", now.minute, oneSecondAgo.minute);
+    setFlapDisplay(2, now.minute, oneSecondAgo.minute);
   }
+    setFlapDisplay(2, now.second, oneSecondAgo.second);
 };
 
 setTime();
