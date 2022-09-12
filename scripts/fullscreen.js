@@ -66,7 +66,8 @@ fullscreen.addEventListener("click", () => {
 });
 
 clock.addEventListener("click", () => {
-  if (quitFullscreen() !== false) {
+  /** why ? null false should use fallback solution **/
+  if (quitFullscreen() !== true) {
     return;
   }
   header.classList.remove("header--hidden");
