@@ -1,5 +1,5 @@
 const changeColor = () => {
-  const page = document.querySelector("#page");
+  const page = document.querySelector(".page");
   if (page.classList.contains("page--red")) {
     page.classList.remove("page--red");
     localStorage.setItem("isPageRed", false);
@@ -16,6 +16,6 @@ const initialiseColor = () => {
   }
 };
 
-const palette = document.querySelector("#palette");
+const palette = document.querySelector(".header__link:nth-child(2)");
 palette.addEventListener("click", () => changeColor());
 initialiseColor();

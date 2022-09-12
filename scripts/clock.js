@@ -14,6 +14,7 @@ const setFlapText = (flap, text) => {
   }
 }
 
+/** flap ordering */
 const setFlapDisplay = (id, newValue, oldValue) => {
   const topTightFlap = document.querySelector(
     `#${id} .display__top-tight-flap`

@@ -54,9 +54,9 @@ const quitFullscreen = () => {
   return false;
 };
 
-const header = document.querySelector("#header");
-const fullscreen = document.querySelector("#fullscreen");
-const clock = document.querySelector("#clock");
+const header = document.querySelector(".header");
+const fullscreen = document.querySelector(".header__link:nth-child(3)");
+const clock = document.querySelector(".clock");
 
 fullscreen.addEventListener("click", () => {
   if (demandFullscreen(clock) !== false) {
