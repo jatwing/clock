@@ -14,7 +14,6 @@ const setFlapText = (flap, text) => {
   }
 };
 
-/** flap ordering */
 const setFlapDisplay = (index, newValue, oldValue) => {
   const firstFlap = document.querySelector(`
     .display:nth-child(${index}) .display__flap:nth-child(1)
@@ -62,7 +61,6 @@ const updateTime = () => {
   if (now.minute != oneSecondAgo.minute) {
     setFlapDisplay(2, now.minute, oneSecondAgo.minute);
   }
-    setFlapDisplay(2, now.second, oneSecondAgo.second);
 };
 
 setTime();
