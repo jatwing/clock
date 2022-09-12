@@ -1,13 +1,14 @@
 const getTwoDigitTime = (date) => {
-  const hour = ("0" + date.getHours()).slice(-2);
-  const minute = ("0" + date.getMinutes()).slice(-2);
-  const second = ("0" + date.getSeconds()).slice(-2);
+  const hour = (`0${date.getHours()}`).slice(-2);
+  const minute = (`0${date.getMinutes()}`).slice(-2);
+  const second = (`0${date.getSeconds()}`).slice(-2);
   return { hour, minute, second };
 };
 
 const setFlapText = (flap, text) => {
+  /* is that possible to use find? */
   for (const node of flap.childNodes) {
-    if (node.tagName === "SPAN") {
+    if (node.tagName === 'SPAN') {
       node.textContent = text;
       return;
     }
@@ -34,16 +35,14 @@ const setFlapDisplay = (index, newValue, oldValue) => {
   if (newValue === oldValue) {
     return;
   }
-  secondFlap.classList.add("display__flap--flipping");
-  secondFlap.addEventListener("animationend", () => {
-    secondFlap.classList.remove("display__flap--flipping");
+  secondFlap.classList.add('display__flap--flipping');
+  secondFlap.addEventListener('animationend', () => {
+    secondFlap.classList.remove('display__flap--flipping');
     setFlapText(secondFlap, newValue);
     setFlapText(thirdFlap, newValue);
   });
-  fourthFlap.classList.add("display__flap--flipping");
-  fourthFlap.addEventListener("animationend", () =>
-    fourthFlap.classList.remove("display__flap--flipping")
-  );
+  fourthFlap.classList.add('display__flap--flipping');
+  fourthFlap.addEventListener('animationend', () => fourthFlap.classList.remove('display__flap--flipping'));
 };
 
 const setTime = () => {
@@ -55,13 +54,13 @@ const setTime = () => {
 const updateTime = () => {
   const now = getTwoDigitTime(new Date());
   const oneSecondAgo = getTwoDigitTime(new Date(new Date().getTime() - 1000));
-  if (now.hour != oneSecondAgo.hour) {
+  if (now.hour !== oneSecondAgo.hour) {
     setFlapDisplay(1, now.hour, oneSecondAgo.hour);
   }
-  if (now.minute != oneSecondAgo.minute) {
+  if (now.minute !== oneSecondAgo.minute) {
     setFlapDisplay(2, now.minute, oneSecondAgo.minute);
   }
 };
 
 setTime();
-const interval = setInterval(updateTime, 1000);
+setInterval(updateTime, 1000);

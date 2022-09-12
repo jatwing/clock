@@ -1,9 +1,9 @@
 const demandFullscreen = (element) => {
   if (
-    document.fullscreenElement ||
-    document.mozFullScreenElement ||
-    document.msFullscreenElement ||
-    document.webkitFullscreenElement
+    document.fullscreenElement
+    || document.mozFullScreenElement
+    || document.msFullscreenElement
+    || document.webkitFullscreenElement
   ) {
     return null;
   }
@@ -28,10 +28,10 @@ const demandFullscreen = (element) => {
 
 const quitFullscreen = () => {
   if (
-    !document.fullscreenElement &&
-    !document.mozFullScreenElement &&
-    !document.msFullscreenElement &&
-    !document.webkitFullscreenElement
+    !document.fullscreenElement
+    && !document.mozFullScreenElement
+    && !document.msFullscreenElement
+    && !document.webkitFullscreenElement
   ) {
     return null;
   }
@@ -54,21 +54,21 @@ const quitFullscreen = () => {
   return false;
 };
 
-const header = document.querySelector(".header");
-const fullscreen = document.querySelector(".header__link:nth-child(3)");
-const clock = document.querySelector(".clock");
+const header = document.querySelector('.header');
+const fullscreen = document.querySelector('.header__link:nth-child(3)');
+const clock = document.querySelector('.clock');
 
-fullscreen.addEventListener("click", () => {
+fullscreen.addEventListener('click', () => {
   if (demandFullscreen(clock) !== false) {
     return;
   }
-  header.classList.add("header--hidden");
+  header.classList.add('header--hidden');
 });
 
-clock.addEventListener("click", () => {
-  /** why ? null false should use fallback solution **/
+clock.addEventListener('click', () => {
+  /** why ? null false should use fallback solution * */
   if (quitFullscreen() !== true) {
     return;
   }
-  header.classList.remove("header--hidden");
+  header.classList.remove('header--hidden');
 });
