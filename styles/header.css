@@ -1,4 +1,5 @@
 .header {
+  width: 100%;
   position: relative;
   top: 0;
   width: 100%;
@@ -41,6 +42,7 @@
 }
 
 .header__link {
+  all: unset;
   position: relative;
   height: 1.5rem;
   width: 1.5rem;
