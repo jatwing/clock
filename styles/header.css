@@ -27,18 +27,9 @@
 }
 
 .header__logo {
-  height: 2rem;
-  width: 2rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-}
-
-.header__logo2 {
-  all: unset;
-  height: 1.5rem;
-  padding: 0.75rem;
-  position: relative;
-  width: 1.5rem;
+  height: 3rem;
+  width: 3rem;
+  padding: 0.5rem;
 }
 
 .header__title {
@@ -58,12 +49,13 @@
 
 .header__link {
   all: unset;
+  box-sizing: border-box;
   border-radius: 100%;
   cursor: pointer;
-  height: 1.5rem;
+  height: 3rem;
   padding: 0.75rem;
   position: relative;
-  width: 1.5rem;
+  width: 3rem;
 }
 
 .header__icon {
