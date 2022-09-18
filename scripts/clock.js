@@ -7,7 +7,7 @@ const getTwoDigitTime = (date) => {
 
 const setFlapText = (flap, textContent) => {
   const span = Array.from(flap.childNodes).find(
-    (node) => node.tagName === "SPAN"
+    (node) => node.tagName === 'SPAN',
   );
   span.textContent = textContent;
 };
@@ -32,16 +32,14 @@ const setFlapDisplay = (index, newValue, oldValue) => {
   if (newValue === oldValue) {
     return;
   }
-  secondFlap.classList.add("display__flap--flipping");
-  secondFlap.addEventListener("animationend", () => {
-    secondFlap.classList.remove("display__flap--flipping");
+  secondFlap.classList.add('display__flap--flipping');
+  secondFlap.addEventListener('animationend', () => {
+    secondFlap.classList.remove('display__flap--flipping');
     setFlapText(secondFlap, newValue);
     setFlapText(thirdFlap, newValue);
   });
-  fourthFlap.classList.add("display__flap--flipping");
-  fourthFlap.addEventListener("animationend", () =>
-    fourthFlap.classList.remove("display__flap--flipping")
-  );
+  fourthFlap.classList.add('display__flap--flipping');
+  fourthFlap.addEventListener('animationend', () => fourthFlap.classList.remove('display__flap--flipping'));
 };
 
 const setTime = () => {
@@ -62,13 +60,13 @@ const updateTime = () => {
 };
 
 let interval = null;
-addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   setTime();
   interval = setInterval(updateTime, 1000);
 });
 
-addEventListener("visibilitychange", (event) => {
-  if (document.visibilityState === "visible") {
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
     setTime();
     interval = setInterval(updateTime, 1000);
   } else {
