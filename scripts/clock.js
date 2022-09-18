@@ -1,18 +1,15 @@
 const getTwoDigitTime = (date) => {
-  const hour = (`0${date.getHours()}`).slice(-2);
-  const minute = (`0${date.getMinutes()}`).slice(-2);
-  const second = (`0${date.getSeconds()}`).slice(-2);
+  const hour = `0${date.getHours()}`.slice(-2);
+  const minute = `0${date.getMinutes()}`.slice(-2);
+  const second = `0${date.getSeconds()}`.slice(-2);
   return { hour, minute, second };
 };
 
-const setFlapText = (flap, text) => {
-  /* is that possible to use find? */
-  for (const node of flap.childNodes) {
-    if (node.tagName === 'SPAN') {
-      node.textContent = text;
-      return;
-    }
-  }
+const setFlapText = (flap, textContent) => {
+  const span = Array.from(flap.childNodes).find(
+    (node) => node.tagName === "SPAN"
+  );
+  span.textContent = textContent;
 };
 
 const setFlapDisplay = (index, newValue, oldValue) => {
@@ -35,14 +32,16 @@ const setFlapDisplay = (index, newValue, oldValue) => {
   if (newValue === oldValue) {
     return;
   }
-  secondFlap.classList.add('display__flap--flipping');
-  secondFlap.addEventListener('animationend', () => {
-    secondFlap.classList.remove('display__flap--flipping');
+  secondFlap.classList.add("display__flap--flipping");
+  secondFlap.addEventListener("animationend", () => {
+    secondFlap.classList.remove("display__flap--flipping");
     setFlapText(secondFlap, newValue);
     setFlapText(thirdFlap, newValue);
   });
-  fourthFlap.classList.add('display__flap--flipping');
-  fourthFlap.addEventListener('animationend', () => fourthFlap.classList.remove('display__flap--flipping'));
+  fourthFlap.classList.add("display__flap--flipping");
+  fourthFlap.addEventListener("animationend", () =>
+    fourthFlap.classList.remove("display__flap--flipping")
+  );
 };
 
 const setTime = () => {
@@ -62,5 +61,17 @@ const updateTime = () => {
   }
 };
 
-setTime();
-setInterval(updateTime, 1000);
+let interval = null;
+addEventListener("DOMContentLoaded", (event) => {
+  setTime();
+  interval = setInterval(updateTime, 1000);
+});
+
+addEventListener("visibilitychange", (event) => {
+  if (document.visibilityState === "visible") {
+    setTime();
+    interval = setInterval(updateTime, 1000);
+  } else {
+    clearInterval(interval);
+  }
+});
