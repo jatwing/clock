@@ -16,6 +16,6 @@ const initialiseColor = () => {
   }
 };
 
-const palette = document.querySelector('.header__link:nth-child(2)');
+const palette = document.querySelector('.header__link:nth-last-child(2)');
 palette.addEventListener('click', () => changeColor());
 initialiseColor();

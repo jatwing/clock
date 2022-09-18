@@ -55,7 +55,7 @@ const quitFullscreen = () => {
 };
 
 const header = document.querySelector('.header');
-const fullscreen = document.querySelector('.header__link:nth-child(3)');
+const fullscreen = document.querySelector('.header__link:nth-last-child(1)');
 const clock = document.querySelector('.clock');
 
 fullscreen.addEventListener('click', () => {
