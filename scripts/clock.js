@@ -12,7 +12,7 @@ const setFlapText = (flap, textContent) => {
   span.textContent = textContent;
 };
 
-const setFlapDisplay = (index, newValue, oldValue) => {
+const setFlapDisplay = (index, newValue, oldValue = null) => {
   const firstFlap = document.querySelector(`
     .display:nth-child(${index}) .display__flap:nth-child(1)
   `);
@@ -26,10 +26,10 @@ const setFlapDisplay = (index, newValue, oldValue) => {
     .display:nth-child(${index}) .display__flap:nth-child(4)
   `);
   setFlapText(firstFlap, newValue);
-  setFlapText(secondFlap, oldValue);
-  setFlapText(thirdFlap, oldValue);
+  setFlapText(secondFlap, oldValue || newValue);
+  setFlapText(thirdFlap, oldValue || newValue);
   setFlapText(fourthFlap, newValue);
-  if (newValue === oldValue) {
+  if (!oldValue) {
     return;
   }
   secondFlap.classList.add('display__flap--flipping');
@@ -44,8 +44,8 @@ const setFlapDisplay = (index, newValue, oldValue) => {
 
 const setTime = () => {
   const now = getTwoDigitTime(new Date());
-  setFlapDisplay(1, now.hour, now.hour);
-  setFlapDisplay(2, now.minute, now.minute);
+  setFlapDisplay(1, now.hour);
+  setFlapDisplay(2, now.minute);
 };
 
 const updateTime = () => {
@@ -60,6 +60,7 @@ const updateTime = () => {
 };
 
 let interval = null;
+
 document.addEventListener('DOMContentLoaded', () => {
   setTime();
   interval = setInterval(updateTime, 1000);
